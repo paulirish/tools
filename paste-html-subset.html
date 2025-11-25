@@ -167,7 +167,8 @@
     const allowedTags = [
       'p', 'strong', 'em', 'blockquote', 'code', 'a', 
       'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-      'ul', 'ol', 'li', 'dl', 'dt', 'dd'
+      'ul', 'ol', 'li', 'dl', 'dt', 'dd', 'b', 'i', 'hr', 'br', 'pre', 's','del', 'figcaption', 
+      // div sometimes used as p. ideally could include here...
     ];
     
     // Use a simpler approach that creates a new DOM tree
@@ -268,7 +269,7 @@
         else {
           formatted += getIndent(indent) + part + '\n';
           // Don't increase indent for inline elements
-          if (!part.match(/<(strong|em|code|a)[^>]*>/i)) {
+          if (!part.match(/<(strong|em|code|a|b|i)[^>]*>/i)) {
             indent++;
           }
         }
